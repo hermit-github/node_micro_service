@@ -1,0 +1,28 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+      {
+        "name": "Debug",
+        "type": "node",
+        "request": "launch",
+        "runtimeExecutable": "nodemon",
+        "restart": true,
+        "runtimeArgs": [
+          "--inspect",
+          "--exec",
+          "node",
+          "--require",
+          "ts-node/register",
+          "src/server.ts"
+        ],
+        "env": {
+          "TS_NODE_PROJECT": "${workspaceFolder}/tsconfig.json"
+        },
+        "console": "integratedTerminal",
+        "internalConsoleOptions": "neverOpen",
+        "skipFiles": ["<node_internals>/**"],
+        "sourceMaps": true
+      }
+    ]
+  }
+  

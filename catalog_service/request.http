@@ -1,0 +1,10 @@
+POST http://localhost:8080/catalog/product
+Content-Type: application/json
+
+{
+    "name": "Sample Product",
+    "description": "This is a sample product.",
+    "price": 19.99,
+    "category": "Electronics",
+    "stock": 100
+}
