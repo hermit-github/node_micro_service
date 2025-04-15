@@ -19,14 +19,17 @@
     "morgan": "^1.10.0"
   },
   "devDependencies": {
+    "@faker-js/faker": "^9.7.0",
     "@types/express": "^5.0.1",
     "@types/jest": "^29.5.14",
     "@types/morgan": "^1.9.9",
     "@types/node": "^22.14.1",
+    "@types/rosie": "^0.0.45",
     "@types/supertest": "^6.0.3",
     "jest": "^29.7.0",
     "nodemon": "^3.1.9",
     "rimraf": "^6.0.1",
+    "rosie": "^2.1.1",
     "supertest": "^7.1.0",
     "ts-jest": "^29.3.2",
     "ts-node": "^10.9.2",
