@@ -11,12 +11,10 @@ export class CatalogRepository implements ICatalogRepository {
     findById(id: string): Promise<Product> {
         throw new Error("Method not implemented.");
     }
-    delete(id: string): Promise<Product> {
+    delete(id: string): Promise<string> {
         throw new Error("Method not implemented.");
     }
     update(data: Product): Promise<Product> {
         throw new Error("Method not implemented.");
     }
-
-
 }

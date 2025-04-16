@@ -21,6 +21,8 @@
     "[typescript]": {
       "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
+    "jest.runMode": "on-demand",
+    "jest.jestConfigPath": "jest.config.js"
     // "[prisma]": {
     //   "editor.defaultFormatter": "Prisma.prisma"
     // }

@@ -20,19 +20,31 @@ export class CatalogService {
         return data;
     }
 
-    updateProduct(data:any){
+    async updateProduct(input:any){
+        const data = await this._repository.update(input);
 
+        // emit event to update record in elastic search
+
+        if (!data) {
+            throw new Error("Unable to update product!");
+        }
+
+        return data;
     }
 
-    getProducts(limit:number,offset:number){
-
+    async getProducts(limit:number,offset:number){
+        const products = await this._repository.findAll(limit,offset)
+        return products;
     }
 
-    getProduct(id:string){
-
+    async getProduct(id:string){
+        const product = await this._repository.findById(id)
+        return product;
     }
 
-    deleteProduct(id:string){
+    async deleteProduct(id:string){
+        const _id = await this._repository.delete(id);
 
+        return _id;
     }
 }
