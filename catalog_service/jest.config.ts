@@ -14,7 +14,7 @@ const config: Config = {
   coverageDirectory: "coverage",
   coverageProvider: "v8",
   moduleDirectories:["node_modules", "src"],
-  testMatch: ['**/services/__test__/*.test.ts'],
+  testMatch: ['**/*.test.ts'],
 };
 
 export default config;

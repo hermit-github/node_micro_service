@@ -3,23 +3,7 @@ import { Product } from "../../models/product.model";
 import { MockCatalogRepository } from "../../repositories/mock.catalog.repository";
 import { CatalogService } from "../catalog.service";
 import { faker } from "@faker-js/faker";
-import { Factory } from "rosie";
-
-const productFactory = new Factory<Product>()
-  .attr("id", faker.string.uuid())
-  .attr("name", faker.commerce.productName())
-  .attr("description", faker.commerce.productDescription())
-  .attr("stock", faker.number.int({ min: 10, max: 100 }))
-  .attr("price", +faker.commerce.price());
-
-const mockProduct = (rest: any) => {
-  return {
-    name: faker.commerce.productName(),
-    description: faker.commerce.productDescription(),
-    stock: faker.number.int({ min: 1, max: 100 }),
-    ...rest,
-  };
-};
+import { mockProduct, productFactory } from "../../utils/test.utils";
 
 describe("Catalog Service", () => {
   let repository: ICatalogRepository;
