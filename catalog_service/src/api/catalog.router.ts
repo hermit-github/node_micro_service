@@ -9,7 +9,7 @@ const router = express.Router();
 export const catalogService = new CatalogService(new CatalogRepository());
 
 router
-  .route("/product")
+  .route("/products")
   .post(async (req: Request, res: Response, next: NextFunction) => {
 
     try {
@@ -27,10 +27,7 @@ router
       res.status(StatusCodes.INTERNAL_SERVER_ERROR).json(err.message);
     }
 
-  });
-
-router
-  .route("/products")
+  })
   .get(async (req: Request, res: Response, next: NextFunction) => {
     const limit = Number(req.query["limit"]);
     const offset = Number(req.query["offset"]);
@@ -51,7 +48,7 @@ router
   });
   
 router
-    .route("/product/:id")
+    .route("/products/:id")
     .patch(async (req: Request, res: Response, next: NextFunction) => {
       try {
         const {id} = req.params;

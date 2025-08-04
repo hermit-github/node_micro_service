@@ -11,7 +11,7 @@ app.use("/", catalogRouter);
 describe("Catalog Router", () => {
   const req = request(app);
 
-  describe("POST /product", () => {
+  describe("POST /products", () => {
     test("should create a product", async () => {
       const requestBody = mockRequest();
       const product = productFactory.build();
@@ -21,18 +21,18 @@ describe("Catalog Router", () => {
         .mockImplementationOnce(() => Promise.resolve(product));
 
       const response = await req
-        .post("/product")
+        .post("/products")
         .send(requestBody)
         .set("Accept", "application/json");
       expect(response.status).toBe(201);
       expect(response.body).toMatchObject(product);
     });
 
-    test("should resposnd with validation error 400", async () => {
+    test("should respond with validation error 400", async () => {
       const requestBody = mockRequest();
 
       const response = await req
-        .post("/product")
+        .post("/products")
         .send({ ...requestBody, name: "" })
         .set("Accept", "application/json");
       console.log(response.body);
@@ -40,25 +40,25 @@ describe("Catalog Router", () => {
       expect(response.body).toBe("name should not be empty");
     });
 
-    test("should resposnd with an internal server error 500", async () => {
+    test("should respond with an internal server error 500", async () => {
       const requestBody = mockRequest();
 
       jest
         .spyOn(catalogService, "createProduct")
         .mockImplementationOnce(() =>
-          Promise.reject(new Error("error occured while creating product"))
+          Promise.reject(new Error("error occurred while creating product"))
         );
 
       const response = await req
-        .post("/product")
+        .post("/products")
         .send(requestBody)
         .set("Accept", "application/json");
       expect(response.status).toBe(500);
-      expect(response.body).toBe("error occured while creating product");
+      expect(response.body).toBe("error occurred while creating product");
     });
   });
 
-  describe("PATCH /product/:id", () => {
+  describe("PATCH /products/:id", () => {
     test("should update a product", async () => {
       const product = productFactory.build();
       const requestBody = {
@@ -72,14 +72,14 @@ describe("Catalog Router", () => {
         .mockImplementationOnce(() => Promise.resolve(product));
 
       const response = await req
-        .patch(`/product/${product.id}`)
+        .patch(`/products/${product.id}`)
         .send(requestBody)
         .set("Accept", "application/json");
       expect(response.status).toBe(200);
       expect(response.body).toMatchObject(product);
     });
 
-    test("should resposnd with validation error 400", async () => {
+    test("should respond with validation error 400", async () => {
       const product = productFactory.build();
       const requestBody = {
         name: product.name,
@@ -88,7 +88,7 @@ describe("Catalog Router", () => {
       };
 
       const response = await req
-        .patch(`/product/${product.id}`)
+        .patch(`/products/${product.id}`)
         .send(requestBody)
         .set("Accept", "application/json");
       console.log(response.body);
@@ -96,7 +96,7 @@ describe("Catalog Router", () => {
       expect(response.body).toBe("price must not be less than 1");
     });
 
-    test("should resposnd with an internal server error 500", async () => {
+    test("should respond with an internal server error 500", async () => {
       const product = productFactory.build();
       const requestBody = {
         name: product.name,
@@ -107,15 +107,15 @@ describe("Catalog Router", () => {
       jest
         .spyOn(catalogService, "updateProduct")
         .mockImplementationOnce(() =>
-          Promise.reject(new Error("error occured while updating product"))
+          Promise.reject(new Error("error occurred while updating product"))
         );
 
       const response = await req
-        .patch(`/product/${product.id}`)
+        .patch(`/products/${product.id}`)
         .send(requestBody)
         .set("Accept", "application/json");
       expect(response.status).toBe(500);
-      expect(response.body).toBe("error occured while updating product");
+      expect(response.body).toBe("error occurred while updating product");
     });
   });
 
@@ -150,7 +150,7 @@ describe("Catalog Router", () => {
     });
   });
 
-  describe("GET /product/:id", () => {
+  describe("GET /products/:id", () => {
     test("should return a product based on id", async () => {
       const product = productFactory.build();
 
@@ -159,7 +159,7 @@ describe("Catalog Router", () => {
         .mockImplementationOnce(() => Promise.resolve(product));
 
       const response = await req
-        .get(`/product/${product.id}`)
+        .get(`/products/${product.id}`)
         .set("Accept", "application/json");
       expect(response.status).toBe(200);
       expect(response.body).toMatchObject(product);
@@ -173,14 +173,14 @@ describe("Catalog Router", () => {
         .mockImplementationOnce(() => Promise.reject(new Error("unable to get product!")));
 
         const response = await req
-        .get(`/product/${product.id}`)
+        .get(`/products/${product.id}`)
         .set("Accept", "application/json");
       expect(response.status).toBe(500);
       expect(response.body).toBe("unable to get product!");
     });
   });
 
-  describe("DELETE /product/:id", () => {
+  describe("DELETE /products/:id", () => {
     test("should delete a product based on id", async () => {
       const product = productFactory.build();
 
@@ -189,7 +189,7 @@ describe("Catalog Router", () => {
         .mockImplementationOnce(() => Promise.resolve(product.id!));
 
       const response = await req
-        .delete(`/product/${product.id}`)
+        .delete(`/products/${product.id}`)
         .set("Accept", "application/json");
       expect(response.status).toBe(200);
       expect(response.body).toEqual(product.id!);
@@ -203,7 +203,7 @@ describe("Catalog Router", () => {
         .mockImplementationOnce(() => Promise.reject(new Error("unable to delete product!")));
 
         const response = await req
-        .delete(`/product/${product.id}`)
+        .delete(`/products/${product.id}`)
         .set("Accept", "application/json");
       expect(response.status).toBe(500);
       expect(response.body).toBe("unable to delete product!");
