@@ -168,10 +168,10 @@ describe("Catalog Service", () => {
       
       jest
         .spyOn(repository,"delete")
-        .mockImplementationOnce(() => Promise.resolve(product.id!));
+        .mockImplementationOnce(() => Promise.resolve(product));
       
       const result = await service.deleteProduct(product.id!);
-      expect(result).toBe(product.id!);
+      expect(result).toBe(product);
     });
 
     test("should throw error if product doesn't exist", async () => {

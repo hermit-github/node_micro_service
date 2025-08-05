@@ -186,13 +186,13 @@ describe("Catalog Router", () => {
 
       jest
         .spyOn(catalogService, "deleteProduct")
-        .mockImplementationOnce(() => Promise.resolve(product.id!));
+        .mockImplementationOnce(() => Promise.resolve(product));
 
       const response = await req
         .delete(`/products/${product.id}`)
         .set("Accept", "application/json");
       expect(response.status).toBe(200);
-      expect(response.body).toEqual(product.id!);
+      expect(response.body).toEqual(product);
     });
 
     test("should return error if unable to delete product based on id", async () => {

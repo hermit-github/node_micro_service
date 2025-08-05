@@ -20,7 +20,7 @@ export class MockCatalogRepository implements ICatalogRepository {
     return Promise.resolve({id} as unknown as Product)
   }
   delete(id: string) {
-    return Promise.resolve(id)
+    return Promise.resolve({id} as unknown as Product)
   }
   update(data: Product): Promise<Product> {
     return Promise.resolve(data as unknown as Product);
