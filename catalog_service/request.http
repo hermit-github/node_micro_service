@@ -1,10 +1,33 @@
-POST http://localhost:8080/catalog/product
+### Create a new product
+POST http://localhost:8080/catalog/products
 Content-Type: application/json
 
 {
     "name": "Sample Product",
     "description": "This is a sample product.",
     "price": 19.99,
-    "category": "Electronics",
+    "stock": 100
+}
+
+### Get a list of products
+GET http://localhost:8080/catalog/products?limit=10&offset=0
+Content-Type: application/json
+
+### Get a single product by id
+GET http://localhost:8080/catalog/products/54fced12-8e8b-4f08-8abf-1208c9479d82
+Content-Type: application/json
+
+### delete an existing product
+DELETE http://localhost:8080/catalog/products/54fced12-8e8b-4f08-8abf-1208c9479d82
+Content-Type: application/json
+
+### update an existing product
+PATCH  http://localhost:8080/catalog/products/54fced12-8e8b-4f08-8abf-1208c9479d82
+Content-Type: application/json
+
+{
+    "name": "Sample Product II",
+    "description": "This is a sample product.",
+    "price": 19.99,
     "stock": 100
 }
