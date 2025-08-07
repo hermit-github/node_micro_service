@@ -1,13 +1,16 @@
 {
-	"folders": [
-		{
-			"path": "catalog_service"
-		},
-		{
-			"path": "order_service"
-		},
-		{
-			"path": "db"
-		}
-	]
+  "folders": [
+    {
+      "path": "catalog_service"
+    },
+    {
+      "path": "order_service"
+    },
+    {
+      "path": "db"
+    }
+  ],
+  "settings": {
+    "cSpell.words": ["typebox"]
+  }
 }

@@ -1,0 +1,13 @@
+### Create a new product
+GET http://localhost:9000/health
+Content-Type: application/json
+
+### Get Cart Details
+POST http://localhost:9000/cart
+Content-Type: application/json
+
+{
+    "productId":"",
+    "customerId":"",
+    "quantity":10
+}

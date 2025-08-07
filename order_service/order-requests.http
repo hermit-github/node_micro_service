@@ -1,0 +1,4 @@
+
+### Get Cart Details
+GET http://localhost:9000/orders
+Content-Type: application/json
