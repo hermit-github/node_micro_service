@@ -3,7 +3,7 @@ GET http://localhost:9000/health
 Content-Type: application/json
 
 ### Get Cart Details
-GET http://localhost:9000/cart
+GET http://localhost:9000/cart?customerId=fa179915-5603-4758-967c-2a150bfe3560
 Content-Type: application/json
 
 ### Create Cart
@@ -11,7 +11,19 @@ POST http://localhost:9000/cart
 Content-Type: application/json
 
 {
-    "productId":"0a98c22d-0344-487c-9339-001dab00c58b",
+    "productId":"7b9601b6-628e-4694-8b50-4a3c26083089",
     "customerId":"fa179915-5603-4758-967c-2a150bfe3560",
     "quantity":10
 }
+
+### Update Cart (line item id in path param)
+PATCH http://localhost:9000/cart/764d2a00-96a6-45e3-a9d6-92334a6d1cd3
+Content-Type: application/json
+
+{
+    "quantity":20
+}
+
+### Delete Cart (line item id in path param)
+DELETE  http://localhost:9000/cart/764d2a00-96a6-45e3-a9d6-92334a6d1cd3
+Content-Type: application/json

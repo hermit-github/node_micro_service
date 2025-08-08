@@ -12,4 +12,4 @@ export const CartEditRequestSchema = Type.Object({
 })
 
 export type CartRequestInput = Static<typeof CartRequestSchema>;
-export type CartEditRequestInput = Static<typeof CartRequestSchema>;
+export type CartEditRequestInput = Static<typeof CartEditRequestSchema>;

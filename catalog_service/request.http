@@ -3,9 +3,9 @@ POST http://localhost:8080/catalog/products
 Content-Type: application/json
 
 {
-    "name": "Sample Product II",
-    "description": "This is a sample product.",
-    "price": 19.99,
+    "name": "iPad Air",
+    "description": "smart tablet by apple",
+    "price": 189.99,
     "stock": 100
 }
 
@@ -26,8 +26,8 @@ PATCH  http://localhost:8080/catalog/products/0a98c22d-0344-487c-9339-001dab00c5
 Content-Type: application/json
 
 {
-    "name": "Sample Product II",
-    "description": "This is a sample product.",
-    "price": 19.99,
+    "name": "iPhone 16",
+    "description": "smart phone by apple",
+    "price": 199.99,
     "stock": 100
 }

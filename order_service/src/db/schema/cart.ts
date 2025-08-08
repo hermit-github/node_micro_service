@@ -24,10 +24,11 @@ export const cartLineItem = pgTable("cart_line_items", {
   quantity:integer("quantity").notNull(),
   price:numeric("price"),
   createdAt:timestamp("created_at").notNull().defaultNow(),
-  updatedAt:timestamp("created_at").notNull().defaultNow(),
+  updatedAt:timestamp("updated_at").notNull().defaultNow(),
 });
 
 export type CartLineItem = InferSelectModel<typeof cartLineItem>;
+export type NewCartLineItem = InferInsertModel<typeof cartLineItem>;
 
 export const cartRelations = relations(cart,({many}) => ({
     lineItems:many(cartLineItem)
