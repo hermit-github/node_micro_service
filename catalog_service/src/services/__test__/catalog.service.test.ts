@@ -1,9 +1,10 @@
 import { ICatalogRepository } from "../../interface/catalog_repository.interface";
 import { Product } from "../../models/product.model";
 import { MockCatalogRepository } from "../../repositories/mock.catalog.repository";
+import { mockProduct,productFactory } from "../../utils/fixtures";
 import { CatalogService } from "../catalog.service";
 import { faker } from "@faker-js/faker";
-import { mockProduct, productFactory } from "../../utils/test.utils";
+// import { mockProduct, productFactory } from "../../utils/test.utils";
 
 describe("Catalog Service", () => {
   let repository: ICatalogRepository;

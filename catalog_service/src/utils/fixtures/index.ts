@@ -1,6 +1,6 @@
 import { faker } from "@faker-js/faker";
 import {Factory} from "rosie";
-import { Product } from "../models/product.model";
+import { Product } from "../../models/product.model";
 
 export const productFactory = new Factory<Product>()
   .attr("id", faker.string.uuid())

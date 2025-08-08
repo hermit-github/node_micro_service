@@ -1,6 +1,7 @@
 import { PrismaClient } from "../generated/prisma";
 import { ICatalogRepository } from "../interface/catalog_repository.interface";
 import { Product } from "../models/product.model";
+import { NotFoundError } from "../utils";
 
 export class CatalogRepository implements ICatalogRepository {
   _prisma: PrismaClient;
@@ -29,7 +30,7 @@ export class CatalogRepository implements ICatalogRepository {
       return Promise.resolve(product);
     }
 
-    throw new Error("product not found");
+    throw new NotFoundError("product not found");
   }
 
   async delete(id: string): Promise<Product> {

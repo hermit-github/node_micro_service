@@ -2,7 +2,7 @@ import request from "supertest";
 import express from "express";
 import { faker } from "@faker-js/faker/.";
 import catalogRouter, { catalogService } from "../catalog.router";
-import { mockRequest, productFactory } from "../../utils/test.utils";
+import { mockRequest,productFactory } from "../../utils/fixtures";
 
 const app = express();
 app.use(express.json());

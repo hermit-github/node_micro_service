@@ -1,9 +1,9 @@
-import { ErrorRequestHandler, NextFunction, Request,Response } from "express";
+import { NextFunction, Request,Response } from "express";
 import { AuthorizationError, NotFoundError, ValidationError } from "./errors";
 import { logger } from "../logger";
 
 
-export const HandleErrorWithLogger:ErrorRequestHandler = (
+export const HandleErrorWithLogger = (
     error: Error,
     req:Request,
     res:Response,
@@ -31,7 +31,7 @@ export const HandleErrorWithLogger:ErrorRequestHandler = (
         logger.warn(error); // ignore common errors caused by user
     }
 
-    res.status(status).json(data);
+    return res.status(status).json(data);
 }
 
 export const HandleUncaughtException = async (error:Error) => {
