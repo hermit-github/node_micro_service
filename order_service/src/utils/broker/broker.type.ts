@@ -1,4 +1,4 @@
-import { OrderEvent, TOPIC_TYPE } from "../../types";
+import { MessageType, OrderEvent, TOPIC_TYPE } from "../../types";
 
 export interface PublishType {
     headers:Record<string,any>;
@@ -6,6 +6,8 @@ export interface PublishType {
     event:OrderEvent;
     message:Record<string,any>;
 }
+
+export type MessageHandler = (input:MessageType) => void;
 
 
 export type MessageBrokerType = {
@@ -17,5 +19,5 @@ export type MessageBrokerType = {
     // consumer
     connectConsumer:<T>() => Promise<T>;
     disconnectConsumer:() => Promise<void>;
-    subscribe:(messageHandler:Function,topic:string) => Promise<void>;
+    subscribe:(messageHandler:MessageHandler,topic:TOPIC_TYPE) => Promise<void>;
 }

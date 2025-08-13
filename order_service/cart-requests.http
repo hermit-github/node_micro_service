@@ -27,3 +27,9 @@ Content-Type: application/json
 ### Delete Cart (line item id in path param)
 DELETE  http://localhost:9000/cart/764d2a00-96a6-45e3-a9d6-92334a6d1cd3
 Content-Type: application/json
+
+
+### Create Order
+POST http://localhost:9000/orders
+Content-Type: application/json
+Authorization: Bearer YOUR_TOKEN_HERE

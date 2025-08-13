@@ -8,9 +8,12 @@
     },
     {
       "path": "db"
+    },
+    {
+      "path":"broker"
     }
   ],
   "settings": {
-    "cSpell.words": ["typebox"]
+    "cSpell.words": ["kafkajs", "Partitioner", "Partitioners", "typebox"]
   }
 }

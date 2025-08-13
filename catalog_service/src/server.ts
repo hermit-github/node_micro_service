@@ -2,7 +2,7 @@ import app from "./app";
 import { logger } from "./utils";
 
 export const startServer = async () => {
-  const port = 8080;
+  const port = 8000;
   app.listen(port, () => {
     logger.info(`Server is running on http://localhost:${port}`);
   });
